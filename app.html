@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Point of sale</title>
+    <link rel="stylesheet" href="/styless/app.css" />
+    <script
+      src="https://kit.fontawesome.com/3154f23d07.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="app">
+      <input type="checkbox" id="check" />
+      <nav>
+        <div class="icon">
+          <img src="/images/mylogo.png" alt="Calvert Co" />
+        </div>
+        <div class="searchbox">
+          <input type="search" placeholder="Search Product Here" />
+          <span><i class="fab fa-searchengin"></i></span>
+        </div>
+        <ol>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Login</a></li>
+        </ol>
+        <label for="check" class="bar">
+          <span><i class="fas fa-hamburger"></i></span>
+          <span><i class="fas fa-expand-arrows-alt"></i></span>
+        </label>
+      </nav>
+      <h1>Products</h1>
+      <div class="button-container">
+        <button onclick="filterCards('All')">All</button>
+        <button onclick="filterCards('AutoParts')">Auto Parts</button>
+        <button onclick="filterCards('Hygiene')">Hygiene</button>
+      </div>
+      <div class="project-container"></div>
+    </section>
+  </body>
+  <script src="/scripts/app.js"></script>
+</html>

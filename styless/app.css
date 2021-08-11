@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background: url(/images/backp.jpg);
+  background-size: cover;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  background: aliceblue;
+  color: #2ee590;
+  position: relative;
+  justify-content: space-between;
+  text-align: center;
+}
+
+nav ol {
+  display: flex;
+  list-style: none;
+  margin: auto 0;
+  color: #2ee590;
+}
+
+nav ol li {
+  max-width: 0 2px;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  color: #2ee590;
+  transition: 0.4s ease-in-out;
+}
+nav ol li:hover {
+  background: #2ee590;
+}
+
+.icon img {
+  color: #2ee590;
+  cursor: pointer;
+  margin-top: -55px;
+}
+
+.searchbox {
+  display: flex;
+  margin: auto 0;
+  height: 30px;
+  line-height: 30px;
+}
+
+.searchbox input {
+  border: none;
+  outline: none;
+  background: #ffdf;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 20px;
+  width: 350px;
+}
+
+.searchbox span {
+  color: #2ee590;
+  font-size: 20px;
+  background: #ffdf;
+  height: 100%;
+  padding-right: 10px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  transition: ease-in-out 0.3s;
+}
+
+.searchbox span:hover {
+  color: white;
+}
+
+.searchbox span::after {
+  height: 100%;
+  width: 0%;
+  content: "";
+  background: #ff003c;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: ease-in-out 0.3s;
+}
+
+.searchbox span:hover::after {
+  width: 100%;
+}
+
+.bar {
+  position: relative;
+  margin: auto;
+  display: none;
+}
+
+.bar span {
+  position: absolute;
+  color: #ffdf;
+  font-size: 30px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 23%;
+  margin: 1%;
+}
+
+.project-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.motor {
+  height: 30vh;
+  width: 20vw;
+  background: url(/images/2j.jpg);
+  background-size: cover;
+}
+
+.gear {
+  background: url(/images/gear.jpg);
+  background-size: cover;
+  height: 30vh;
+  width: 20vw;
+}
+
+.san {
+  background: url(/images/san.jpg);
+  background-size: cover;
+  height: 30vh;
+  width: 20vw;
+}
+
+.mask {
+  background: url(/images/mas.jpeg);
+  background-size: cover;
+  height: 30vh;
+  width: 20vw;
+}

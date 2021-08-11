@@ -94,7 +94,8 @@
 }
 
 #reg {
-  background: url(/images/back.jpg) no-repeat;
+  background: url(/images/backw.jpg) no-repeat;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background-attachment: fixed;
