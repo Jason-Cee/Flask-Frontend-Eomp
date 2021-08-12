@@ -1,72 +1,55 @@
-let projects = [
+let carts = document.querySelectorAll(".add-cart");
+
+let products = [
   {
-    class: "motor",
-    imgALT: "2JZ-GTE Motor",
-    title: "2JZ-GTE Motor",
-    techStack: "AutoParts",
-    description: "Full Rebuilt motor",
+    name: "Hand Sanitizer",
+    tag: "sanitizer",
+    price: 50,
+    inCart: 0,
   },
   {
-    class: "gear",
-    imgALT: "2JZ-GTE Manual Gearbox",
-    title: "2JZ-GTE Manual Gearbox",
-    techStack: "AutoParts",
-    description: "Full Rebuilt Gearbox",
+    name: "Face Masks",
+    tag: "masks",
+    price: 65,
+    inCart: 0,
   },
   {
-    class: "san",
-    imgALT: "Hand Sanitizer",
-    title: "Hand Sanitizer",
-    techStack: "Hygiene",
-    description: "Kills 99.9% Of Germs",
+    name: "Infrared Termometer",
+    tag: "thermometer",
+    price: 500,
+    inCart: 0,
   },
   {
-    class: "mask",
-    imgALT: "Face Mask",
-    title: "Face Masks",
-    techStack: "Hygiene",
-    description: "Triple Filtered Masks",
+    name: "Latex Gloves",
+    tag: "gloves",
+    price: 400,
+    inCart: 0,
+  },
+  {
+    name: "Vitamin C",
+    tag: "vitamin c",
+    price: 136,
+    inCart: 0,
   },
 ];
 
-function createCard(card) {
-  let createdCard = `<div class="project-card ${card.class}" techStack=${card.techStack} >
-    <div class="card-content">
-    <h2>${card.title}<h2>
-    </div>
-  </div>
-`;
-  return createdCard;
+for (let j = 0; j < carts.length; j++) {
+  carts[j].addEventListener("click", () => {
+    // console.log("Added to Cart");
+    cartNumbers();
+  });
 }
 
-function renderCards() {
-  let projectContainer = document.querySelector(".project-container");
-  for (project of projects) {
-    let card = createCard(project);
-    projectContainer.innerHTML += card;
-  }
-}
+function cartNumbers() {
+  let productNumbers = localStorage.getItem("cartNumbers");
 
-renderCards();
+  productNumbers = parseInt(productNumbers);
 
-function filterCards(category) {
-  let cards = document.getElementsByClassName("project-card");
-
-  if (category === "All") {
-    for (card of cards) {
-      card.style.display = "block";
-    }
-    return;
-  }
-
-  for (card of cards) {
-    console.log(card);
-    card.style.display = "none";
-  }
-
-  let selectedCards = document.querySelectorAll(`[techStack='${category}']`);
-
-  for (card of selectedCards) {
-    card.style.display = "block";
+  if (productNumbers) {
+    localStorage.setItem("cartNumbers", productNumbers + 1);
+    document.querySelector(".cart span").textContent = productNumbers + 1;
+  } else {
+    localStorage.setItem("cartNumbers", 1);
+    document.querySelector(".cart span").textContent = 1;
   }
 }

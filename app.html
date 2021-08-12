@@ -18,29 +18,60 @@
         <div class="icon">
           <img src="/images/mylogo.png" alt="Calvert Co" />
         </div>
-        <div class="searchbox">
-          <input type="search" placeholder="Search Product Here" />
-          <span><i class="fab fa-searchengin"></i></span>
-        </div>
+        <h1 class="h1">Welcome To Calvert Co</h1>
         <ol>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="/login.html">Login</a></li>
+          <!-- <li><a href="#"></a></li> -->
+          <li><a href="#">Contact</a></li>
+          <li class="cart">
+            <a href="cart.html"
+              ><i class="fas fa-shopping-basket"></i><span>0</span></a
+            >
+          </li>
         </ol>
         <label for="check" class="bar">
           <span><i class="fas fa-hamburger"></i></span>
           <span><i class="fas fa-expand-arrows-alt"></i></span>
         </label>
       </nav>
-      <h1>Products</h1>
-      <div class="button-container">
-        <button onclick="filterCards('All')">All</button>
-        <button onclick="filterCards('AutoParts')">Auto Parts</button>
-        <button onclick="filterCards('Hygiene')">Hygiene</button>
+      <div class="container">
+        <div class="image">
+          <img src="/images/san.jpg" alt="Sanitizer" />
+          <h3>Hand Sanitizer</h3>
+          <h3>R50</h3>
+          <p>Kills 99.9% Of Germs</p>
+          <a class="add-cart cart1" href="#">Add To Cart</a>
+          <input type="hidden" value="50" />
+        </div>
+        <div class="image">
+          <img src="/images/mas.jpg" alt="Face Masks" />
+          <h3>Face Masks</h3>
+          <h3>R65</h3>
+          <p>Tripple Filtered 50pack</p>
+          <a class="add-cart cart2" href="#">Add To Cart</a>
+        </div>
+        <div class="image">
+          <img src="/images/thermometer.jpg" alt="Thermometer" />
+          <h3>Infrared Thermometer</h3>
+          <h3>R500</h3>
+          <p>Non Contact</p>
+          <a class="add-cart cart3" href="#">Add To Cart</a>
+        </div>
+        <div class="image">
+          <img src="/images/gloves.jpeg" alt="Gloves" />
+          <h3>Latex Gloves</h3>
+          <h3>R400</h3>
+          <p>100pack Disposable gloves</p>
+          <a class="add-cart cart4" href="#">Add To Cart</a>
+        </div>
+        <div class="image">
+          <img src="/images/chew.jpeg" alt="Vitman C" />
+          <h3>Vitamin C</h3>
+          <h3>R136</h3>
+          <p>300 Chewable Vitamin C Tablets</p>
+          <a class="add-cart cart5" href="#">Add To Cart</a>
+        </div>
       </div>
-      <div class="project-container"></div>
     </section>
   </body>
   <script src="/scripts/app.js"></script>
