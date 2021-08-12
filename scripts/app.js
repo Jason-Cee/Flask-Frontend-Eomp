@@ -40,6 +40,14 @@ for (let j = 0; j < carts.length; j++) {
   });
 }
 
+function trueCartNumber() {
+  let productNumbers = localStorage.getItem("cartNumbers");
+
+  if (productNumbers) {
+    document.querySelector(".cart span").textContent = productNumbers;
+  }
+}
+
 function cartNumbers() {
   let productNumbers = localStorage.getItem("cartNumbers");
 
@@ -53,3 +61,4 @@ function cartNumbers() {
     document.querySelector(".cart span").textContent = 1;
   }
 }
+trueCartNumber();
