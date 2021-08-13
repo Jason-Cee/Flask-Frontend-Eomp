@@ -125,3 +125,55 @@ input[type="checkbox"] {
   padding: 10px;
   text-decoration: none;
 }
+
+/* ---------------- CART PAGE  ---------------- */
+
+.products-container {
+  max-width: 650px;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+}
+
+.product-header {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 4px solid #2ee590;
+  margin: 0 auto;
+}
+
+.product-title {
+  width: 45%;
+}
+
+.price {
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.quantity {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.products {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #2ee590;
+}
