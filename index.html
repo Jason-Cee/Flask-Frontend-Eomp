@@ -988,24 +988,26 @@
         <!-- ENTERING USERNAME -->
         <div class="textbox">
           <img src="https://img.icons8.com/ios-filled/30/ffffff/user-location.png"/>
-          <input type="text" placeholder="Username">
+          <input type="text" placeholder="Username" required>
         </div>
         <!-- ENTERING PASSWORD -->
-        <div class="textbox">
-          <img src="https://img.icons8.com/ios-filled/30/ffffff/private2.png"/>
-          <input type="text" placeholder="Password">
-        </div>
+        <form class="form" id="login_form" method="POST" acti>
+          <div class="textbox">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/private2.png"/>
+            <input type="text" placeholder="Password" required>
+          </div>
         <!-- SIGN IN BUTTON -->
-        <a href="/app.html" class="btn" type="button">Sign in</a>
-      </div>
+            <button type="submit" class="btn login">Sign In</button>
+          </div>
       <!-- OPTION TO SIGN UP -->
-        <div class="bottom">
-          <h2>Don't Have An Account ?</h2>
+          <div class="bottom">
+            <h2>Don't Have An Account ?</h2>
     </br>
-          <a href="/registration.html" class="sign">Sign Up</a>
-        </div>
+            <a href="/registration.html" class="btn">Sign Up</a>
+          </div>
+        </form>
       </div>
     </section>
+    <script src="/scripts/main.js"></script>
   </body>
-  <script src="/scripts/main.js"></script>
 </html>

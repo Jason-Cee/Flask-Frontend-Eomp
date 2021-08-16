@@ -27,7 +27,7 @@ let products = [
   },
   {
     name: "Vitamin C",
-    tag: "vitamin c",
+    tag: "vitaminc",
     price: 136,
     inCart: 0,
   },
@@ -105,7 +105,8 @@ function displayCart() {
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
-  let productContainer = document.querySelector(".products-container");
+  let productContainer = document.querySelector(".products");
+  let cartCost = localStorage.getItem("totalCost");
 
   console.log(cartItems);
   if (cartItems && productContainer) {
@@ -113,12 +114,29 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       productContainer.innerHTML += `
       <div class="product">
-        <i class="fas fa-window-close"></i>
-        <img src="./images/${item.tag}.jpeg">
-        <span>${item.name}</span>
+        <img src="./images/${item.tag}.jpg">
+        <span class="pro-title">${item.name}</span>
+      
+        <div class="price">R${item.price}.00</div>
+        <div class="quantity">
+        <span>${item.inCart}</span>
+        </div>
+        <div class="total">
+        R${item.inCart * item.price}.00
+        </div>
       </div>
+
       `;
     });
+
+    productContainer.innerHTML += `
+      <div class="basketTotalContainer">
+        <h4 class="basketTotalTitle"> Basket Total</h4>
+        <h4 class="basketTotal">R${cartCost}.00</h4>    
+      </div>
+    
+    
+    `;
   }
 }
 
