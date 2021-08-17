@@ -28,12 +28,12 @@ function login(username, password) {
     });
 }
 
-document.querySelector("#login_form").addEventListener("submit", (e) => {
-  let username = document.querySelector("#username-input").value;
-  let password = document.querySelector("#password-input").value;
-  e.preventDefault();
-  login(username, password);
-});
+// document.querySelector("#login_form").addEventListener("submit", (e) => {
+//   let username = document.querySelector("#username-input").value;
+//   let password = document.querySelector("#password-input").value;
+//   e.preventDefault();
+//   login(username, password);
+// });
 
 // -------------------------------------------------------------- //
 // -------------------- REGISTER FUNCTION ---------------------- //
@@ -51,12 +51,12 @@ function registerUser() {
       typeof surname === "number" ||
       typeof cell === "string"
     ) {
-      throw "Please use the correct values for each section!";
+      throw "Please use the proper format for each section";
     }
   } catch (e) {
     alert("Error: " + e);
   } finally {
-    fetch("https://limitless-citadel-50663.herokuapp.com/register/", {
+    fetch("https://limitless-citadel-50663.herokuapp.com/registration/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,15 +72,14 @@ function registerUser() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        console.log("You have succesfully registered");
+        console.log("Your details have successfully been registered");
 
         if (data["message"] == "Success") {
           alert("Please Sign In On Next Page");
           window.location.href = "./index.html";
         } else {
-          alert("Please FIll In The Required Fields Correctly");
+          alert("Please Fill In The Required Fields Correctly");
         }
       });
   }
 }
-registerUser();
