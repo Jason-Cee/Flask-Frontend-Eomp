@@ -1,75 +1,86 @@
-let buttons = document.querySelectorAll(".tab");
+// -------------------- LOGIN FUNCTION ---------------------- //
 
-let reg_form = document.querySelector(".register-form");
-let login_form = document.querySelector(".login_form");
+let signInButton = document.querySelector("#login_form");
 
-let login = document.querySelector("#login");
-let register = document.querySelector("#register");
-
-login.addEventListener("click", () => {
-  register.classList.remove("active");
-  reg_form.classList.remove("active");
-
-  login.classList.add("active");
-  login_form.classList.add("active");
-});
-
-register.addEventListener("click", () => {
-  login.classList.remove("active");
-  login_form.classList.remove("active");
-
-  register.classList.add("active");
-  reg_form.classList.add("active");
-});
-
-// LOGIN
-let date = new Date();
-
-let logInButton = document.querySelector(".login");
-
-function loginF(username, password) {
+function login(username, password) {
   console.log(username);
   console.log(password);
-  fetch("https://limitless-citadel-50663.herokuapp.com/auth", {
+  fetch("https://limitless-citadel-50663.herokuapp.com//auth", {
     method: "POST",
+    body: JSON.stringify({
+      username: `${username}`,
+      password: `${password}`,
+    }),
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      username: username,
-      password: password,
-    }),
   })
     .then((response) => response.json())
     .then((data) => {
       if (data["access_token"]) {
         console.log(data);
         myStorage = window.localStorage;
-        // myStorage.setItem("jwt-token", data["access_token"]);
+        myStorage.setItem("jwt-token", data["access_token"]);
         myStorage.setItem("username", username);
         myStorage.setItem("password", password);
-        window.location.href = "/app.html";
+        window.location.href = "./app.html";
       }
     });
 }
 
-// REGISTER
-function registerF(name, email, username, password) {
-  console.log(name, email, username, password);
-  fetch("https://secure-harbor-41796.herokuapp.com/registration/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      username: username,
-      password: password,
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
+document.querySelector("#login_form").addEventListener("submit", (e) => {
+  let username = document.querySelector("#username-input").value;
+  let password = document.querySelector("#password-input").value;
+  e.preventDefault();
+  login(username, password);
+});
+
+// -------------------------------------------------------------- //
+// -------------------- REGISTER FUNCTION ---------------------- //
+
+function registerUser() {
+  const name = document.getElementById("first_name").value;
+  const surname = document.getElementById("last_name").value;
+  const email = document.getElementById("email").value;
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    if (
+      typeof name === "number" ||
+      typeof surname === "number" ||
+      typeof cell === "string"
+    ) {
+      throw "Please use the correct values for each section!";
+    }
+  } catch (e) {
+    alert("Error: " + e);
+  } finally {
+    fetch("https://limitless-citadel-50663.herokuapp.com/register/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: name,
+        last_name: surname,
+        email: email,
+        username: username,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        console.log("You have succesfully registered");
+
+        if (data["message"] == "Success") {
+          alert("Please Sign In On Next Page");
+          window.location.href = "./index.html";
+        } else {
+          alert("Please FIll In The Required Fields Correctly");
+        }
+      });
+  }
 }
+registerUser();
